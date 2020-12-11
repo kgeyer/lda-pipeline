@@ -68,12 +68,12 @@ doParallel::registerDoParallel(cl)
 # I = 100?
 # lam = 500
 
-# mini-test
-K = 3
-D = 50
-J = 20
-I = 20
-lam = 100
+# # mini-test
+# K = 3
+# D = 50
+# J = 20
+# I = 20
+# lam = 100
 
 # GENERATE SYMMETRIC DATA-------------------------------------------------------
 # Generate several instances of symmetric data sets. That is, each topic is
