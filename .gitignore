@@ -1,0 +1,85 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# BU SCC #
+##########
+*.qsub.o*
+*.qsub.po*
+*.qsub.pe*
+
+# R #
+#####
+.Rhistory*
+*.RData
+*.Rapp.*
+*.Rout
+Rplots.pdf
+*.rds
+
+# Python #
+##########
+__pycache__
+*.pyc
+.ipynb_checkpoints
+*egg-info
+
+# Latex #
+#########
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# qsub files #
+##############
+*.e*
+*.pe*
+*.po*
+*.qlog
+*.o
+
+# Other #
+#########
+*.rds
+.nfs00*
+*.swp
+~$*.docx
+.nfs00*
+

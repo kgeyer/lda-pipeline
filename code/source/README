@@ -1,0 +1,13 @@
+Contents of the 'source' directory
+
+The R scripts were developed using MacOS v10.15.4 and R v4.0.0
+They were also tested using R v3.6.0 and Linux CentOS 7.5 (BU SCC resources)
+Required R libraries: MCMCpack, Matrix, rstan, ggplot2, ggpubr, and ggmcmc
+
+1. 'simulate_data.R' - functions for simulating data for the MM-LDA model
+2. 'mmlda.R' - functions for MM-LDA model using collapsed Gibbs sampling
+3. 'stan-mmlda.R' - functions for MM-LDA model using stan
+4. 'mm_lda.stan' - stan code for MM-LDA
+5. 'mmlda.rds' - model object created by stan, must delete running code on a new
+                computer
+6. 'bagel_plts.R' - code for plotting MM-LDA using plots from BAGEL

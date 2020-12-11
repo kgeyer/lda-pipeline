@@ -1,0 +1,43 @@
+pyMC3 Model Testing
+October 19, 2020
+Kelly Geyer, klgeyer@bu.edu
+
+DESCRIPTION
+The contents of this directory tests and evaluates the pyMC3 and RStan
+implementations MM-LDA. Additionally, various implementations of LDA are tested
+as well.
+
+CONTENTS
+1. 'local.bash' - Performs all tests locally
+2. 'scc.bash' - Performs all tests on the BU SCC
+3. '*.qsub' - Submits script to BU's SCC
+4. 'generate_data.R' - Simulates data for tests
+5. 'lda_test.py' - Tests LDA models written in Python
+6. 'lda_test.R' - Tests LDA models written in R
+7. 'mmlda_test.py' - Tests MM-LDA models written in Python
+8. 'mmlda_test.R' - Tests MM-LDA models written in R
+9. 'evaluate_lda_results.R' - Generates evaluation metrics and plots for LDA
+10. 'evaluate_mmlda_results.R' - Generates evaluation metrics and plots for MM-LDA
+11. 'test_LDA_pyMC3.ipynb' - Notebook for testing LDA
+12. 'test_MMLDA_pyMC3.ipynb' - Notebook for testing MM-LDA
+
+DEPENDENCIES
+0. Tested on MacOS v10.15.6 and Linux Centos 7.5
+1. Python environment named pm3_<macOS,buscc>.yaml from
+https://github.com/kgeyer/mm-lda/tree/master/docs/software
+2. Install the Python module mmlda:
+https://github.com/kgeyer/mm-lda/tree/master/code/mmlda
+
+DIRECTIONS
+It is recommended to have either Anaconda or Miniconda installed, and to
+configure pyMC3 by loading a Python environment file. Directions for configuring
+MacOS and Linux, as well as the environment files, are provided with this GitLab
+project.
+
+To run the test locally, edit the variables in 'local.bash' and run the
+following:
+$ bash local.bash
+
+To run the test on BU's SCC, edit the variables in 'scc.bash' and run the
+following,
+$ bash scc.bash
