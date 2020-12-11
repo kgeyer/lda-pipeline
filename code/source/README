@@ -8,6 +8,4 @@ Required R libraries: MCMCpack, Matrix, rstan, ggplot2, ggpubr, and ggmcmc
 2. 'mmlda.R' - functions for MM-LDA model using collapsed Gibbs sampling
 3. 'stan-mmlda.R' - functions for MM-LDA model using stan
 4. 'mm_lda.stan' - stan code for MM-LDA
-5. 'mmlda.rds' - model object created by stan, must delete running code on a new
-                computer
 6. 'bagel_plts.R' - code for plotting MM-LDA using plots from BAGEL

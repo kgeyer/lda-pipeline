@@ -41,5 +41,5 @@ viiters=10000         # number of VI iterations
 Rscript generate_data.R $codedir $datadir $nreps $ncores $K $D $I $J $lam
 
 # Run models in R
-outfn=$codedir/RStan-LDA-tests/out_$JOB_ID.out
+outfn=$codedir/RStan-LDA-tests/lda_test_result_$JOB_ID.out
 Rscript lda_test.R $codedir $datadir $modeldir $nreps $ncores $nchain $viiters $mcmciters $out_fn

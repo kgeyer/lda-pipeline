@@ -67,11 +67,11 @@ check_params <- function(theta, beta, K, D, I){
 
 # LDA RESULTS-------------------------------------------------------------------
 # Data frame of statistics
-lda.summary <- data.frame(ds=character(0), dt=character(0), mod=character(0), 
-                          feat=character(0),rt=numeric(0), theta.cs=numeric(0), 
-                          beta.cs=numeric(0))
-colnames(lda.summary) <- c("Data Set", "Data Type", "Model Type", "Feature", "Run Time", 
-                           "Theta CS", "Beta CS")
+# lda.summary <- data.frame(ds=character(0), dt=character(0), mod=character(0), 
+#                           feat=character(0),rt=numeric(0), theta.cs=numeric(0), 
+#                           beta.cs=numeric(0))
+# colnames(lda.summary) <- c("Data Set", "Data Type", "Model Type", "Feature", "Run Time", 
+#                            "Theta CS", "Beta CS")
 # Extract results for each model file
 for (fn in 1:length(model_fns)){
   model_fn = model_fns[[fn]]
@@ -161,61 +161,61 @@ for (fn in 1:length(model_fns)){
 rhdf5::h5closeAll()
 
 # SUMMARY RESULTS---------------------------------------------------------------
-print("CREATE LDA TABLES")
-summary_rds = file.path(results_dir, "lda-summary.rds")
-lda.summary[which(!is.finite(lda.summary))] <- NA
-saveRDS(lda.summary, summary_rds)
-# TABLE 1: means
-summary_fn = file.path(results_dir, "lda-summary-mean.csv")
-X.all = lda.summary[lda.summary$feat=="all", c(2,3,5,6,7)]
-agg.all.mean = aggregate(X.all, by=list(X.all$dt, X.all$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
-agg.all.mean = agg.all.mean[-c(3,4)]
-X.topic = lda.summary[lda.summary$feat=="topic", c(2,3,6,7)]
-agg.topic.mean = aggregate(X.topic, by=list(X.topic$dt, X.topic$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
-agg.topic.mean = agg.topic.mean[-c(3,4)]
-X.feat = lda.summary[lda.summary$feat=="feat", c(2,3,6,7)]
-agg.feat.mean = aggregate(X.feat, by=list(X.feat$dt, X.feat$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
-agg.feat.mean  = agg.feat.mean[-c(3,4)]
-# merge data
-X = data.frame(dt=agg.all.mean$Group.1, mod=agg.all.mean$Group.2, 
-               rt=agg.all.mean$rt, 
-               theta.cs=agg.all.mean$theta.cs, 
-               beta.cs=agg.all.mean$beta.cs, 
-               theta.topic.cs=agg.topic.mean$theta.cs, 
-               beta.topic.cs=agg.topic.mean$beta.cs,
-               theta.feat.cs=agg.feat.mean$theta.cs,
-               beta.feat.cs=agg.feat.mean$beta.cs)
-colnames(X) <- c("Data Type", "Estimation", "Run Time (seconds)", "Theta CS", 
-                 "Beta CS", paste0("Topic Theta CS: K=",K), 
-                 paste0("Topic Beta CS: K=",K), 
-                 paste0("Doc Theta CS: D=",D),
-                 paste0("Feat Beta CS: I=", I))
-write.csv(X, summary_fn, row.names=FALSE)
-
-# TABLE 2: sd
-summary_fn = file.path(results_dir, "lda-summary-sd.csv")
-X.all = lda.summary[lda.summary$feat=="all", c(2,3,5,6,7)]
-agg.all.sd = aggregate(X.all, by=list(X.all$dt, X.all$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
-agg.all.sd = agg.all.sd[-c(3,4)]
-X.topic = lda.summary[lda.summary$feat=="topic", c(2,3,6,7)]
-agg.topic.sd = aggregate(X.topic, by=list(X.topic$dt, X.topic$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
-agg.topic.sd = agg.topic.sd[-c(3,4)]
-X.feat = lda.summary[lda.summary$feat=="feat", c(2,3,6,7)]
-agg.feat.sd = aggregate(X.feat, by=list(X.feat$dt, X.feat$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
-agg.feat.sd  = agg.feat.sd[-c(3,4)]
-# merge data
-X = data.frame(dt=agg.all.sd$Group.1, mod=agg.all.sd$Group.2, 
-               rt=agg.all.sd$rt, 
-               theta.cs=agg.all.sd$theta.cs, 
-               beta.cs=agg.all.sd$beta.cs, 
-               theta.topic.cs=agg.topic.sd$theta.cs, 
-               beta.topic.cs=agg.topic.sd$beta.cs,
-               theta.feat.cs=agg.feat.sd$theta.cs,
-               beta.feat.cs=agg.feat.sd$beta.cs)
-colnames(X) <- c("Data Type", "Estimation", "Run Time (seconds)", "Theta CS", 
-                 "Beta CS", paste0("Topic Theta CS: K=",K), 
-                 paste0("Topic Beta CS: K=",K), 
-                 paste0("Doc Theta CS: D=",D),
-                 paste0("Feat Beta CS: I=", I))
-write.csv(X, summary_fn, row.names=FALSE)
-
+# print("CREATE LDA TABLES")
+# summary_rds = file.path(results_dir, "lda-summary.rds")
+# lda.summary[which(!is.finite(lda.summary))] <- NA
+# saveRDS(lda.summary, summary_rds)
+# # TABLE 1: means
+# summary_fn = file.path(results_dir, "lda-summary-mean.csv")
+# X.all = lda.summary[lda.summary$feat=="all", c(2,3,5,6,7)]
+# agg.all.mean = aggregate(X.all, by=list(X.all$dt, X.all$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
+# agg.all.mean = agg.all.mean[-c(3,4)]
+# X.topic = lda.summary[lda.summary$feat=="topic", c(2,3,6,7)]
+# agg.topic.mean = aggregate(X.topic, by=list(X.topic$dt, X.topic$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
+# agg.topic.mean = agg.topic.mean[-c(3,4)]
+# X.feat = lda.summary[lda.summary$feat=="feat", c(2,3,6,7)]
+# agg.feat.mean = aggregate(X.feat, by=list(X.feat$dt, X.feat$mod), FUN=function(x){round(mean(x, na.rm=TRUE),2)})
+# agg.feat.mean  = agg.feat.mean[-c(3,4)]
+# # merge data
+# X = data.frame(dt=agg.all.mean$Group.1, mod=agg.all.mean$Group.2, 
+#                rt=agg.all.mean$rt, 
+#                theta.cs=agg.all.mean$theta.cs, 
+#                beta.cs=agg.all.mean$beta.cs, 
+#                theta.topic.cs=agg.topic.mean$theta.cs, 
+#                beta.topic.cs=agg.topic.mean$beta.cs,
+#                theta.feat.cs=agg.feat.mean$theta.cs,
+#                beta.feat.cs=agg.feat.mean$beta.cs)
+# colnames(X) <- c("Data Type", "Estimation", "Run Time (seconds)", "Theta CS", 
+#                  "Beta CS", paste0("Topic Theta CS: K=",K), 
+#                  paste0("Topic Beta CS: K=",K), 
+#                  paste0("Doc Theta CS: D=",D),
+#                  paste0("Feat Beta CS: I=", I))
+# write.csv(X, summary_fn, row.names=FALSE)
+# 
+# # TABLE 2: sd
+# summary_fn = file.path(results_dir, "lda-summary-sd.csv")
+# X.all = lda.summary[lda.summary$feat=="all", c(2,3,5,6,7)]
+# agg.all.sd = aggregate(X.all, by=list(X.all$dt, X.all$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
+# agg.all.sd = agg.all.sd[-c(3,4)]
+# X.topic = lda.summary[lda.summary$feat=="topic", c(2,3,6,7)]
+# agg.topic.sd = aggregate(X.topic, by=list(X.topic$dt, X.topic$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
+# agg.topic.sd = agg.topic.sd[-c(3,4)]
+# X.feat = lda.summary[lda.summary$feat=="feat", c(2,3,6,7)]
+# agg.feat.sd = aggregate(X.feat, by=list(X.feat$dt, X.feat$mod), FUN=function(x){round(sd(x, na.rm=TRUE),2)})
+# agg.feat.sd  = agg.feat.sd[-c(3,4)]
+# # merge data
+# X = data.frame(dt=agg.all.sd$Group.1, mod=agg.all.sd$Group.2, 
+#                rt=agg.all.sd$rt, 
+#                theta.cs=agg.all.sd$theta.cs, 
+#                beta.cs=agg.all.sd$beta.cs, 
+#                theta.topic.cs=agg.topic.sd$theta.cs, 
+#                beta.topic.cs=agg.topic.sd$beta.cs,
+#                theta.feat.cs=agg.feat.sd$theta.cs,
+#                beta.feat.cs=agg.feat.sd$beta.cs)
+# colnames(X) <- c("Data Type", "Estimation", "Run Time (seconds)", "Theta CS", 
+#                  "Beta CS", paste0("Topic Theta CS: K=",K), 
+#                  paste0("Topic Beta CS: K=",K), 
+#                  paste0("Doc Theta CS: D=",D),
+#                  paste0("Feat Beta CS: I=", I))
+# write.csv(X, summary_fn, row.names=FALSE)
+# 

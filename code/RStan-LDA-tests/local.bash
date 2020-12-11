@@ -28,8 +28,8 @@ export HDF5_USE_FILE_LOCKING=FALSE
 Rscript generate_data.R $codedir $datadir $nreps $ncores $K $D $I $J $lam
 
 # Run models in R
-outfn=$codedir/RStan-LDA-tests/out_fn.out
+outfn=$codedir/RStan-LDA-tests/lda_test_output.out
 Rscript lda_test.R $codedir $datadir $modeldir $nreps $ncores $nchain $viiters $mcmciters $outfn
 
 # Evaluate the tests
-#Rscript evaluate_lda_results.R $codedir $datadir $modeldir $resultdir $nreps
+Rscript evaluate_lda_results.R $codedir $datadir $modeldir $resultdir $nreps

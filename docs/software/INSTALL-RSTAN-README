@@ -1,0 +1,16 @@
+HOW TO INSTALL RSTAN
+1. Install on MacOS
+2. Install on BU SCC
+
+MacOS v10.15.4 and R v4.0.0
+1. If using macOS, install the package V8: https://github.com/jeroen/V8
+2. Install rstan: https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started
+
+BU SCC: Linux CentOS 7.5 and R v4.0.0
+This directions install RStan for your personal profile
+1. Load R:
+$ module load R/4.0.0
+2. Open R:
+$ R
+3. install packages. example of installing rstan:
+> install.packages('rstan')

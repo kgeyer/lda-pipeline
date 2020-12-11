@@ -1,0 +1,5 @@
+CONTENTS
+1. 'INSTALL-RSTAN-README' - Directions for installing RStan
+2. 'INSTALL-PYMC3-README' - Directions for installing pyMC3
+3. 'pm3_macOS.yaml' - pyMC3 environment for MacOS v10.15.6
+4. 'pm3_buscc.yaml' - pyMC environment for BU SCC (Centos 7.5)
